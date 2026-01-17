@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thinking of You</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fff0f3;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff4d6d;
+            margin-bottom: 20px;
+        }
+
+        .miss-you-btn {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .miss-you-btn:hover {
+            background-color: #ff758f;
+            transform: scale(1.05);
+        }
+
+        .miss-you-btn:active {
+            transform: scale(0.95);
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff4d6d;
+            font-size: 20px;
+            user-select: none;
+            pointer-events: none;
+            animation: floatUp 3s linear forwards;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Seni özledim Dumbuliim</h1>
+        <button class="miss-you-btn" onclick="createHeart()">I Miss You</button>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            
+            // Random position across the width
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            
+            // Random size
+            heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            
+            // Random duration
+            heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            
+            document.body.appendChild(heart);
+
+            // Remove heart after animation
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
